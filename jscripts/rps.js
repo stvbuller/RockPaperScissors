@@ -1,4 +1,4 @@
-
+alert("hi");
 
 
 var rockPaperScissors = ['rock', 'paper', 'scissors'];
