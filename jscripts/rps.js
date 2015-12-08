@@ -7,29 +7,57 @@ var computerScore = 0;
 var roundNumber = 0;
 
 var rockPaperScissors = ['rock', 'paper', 'scissors'];
-var computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
-var computerGuess = rockPaperScissors[computerGuessNumber];
+var computerGuessNumber = 0;
+var computerGuess = 0;
 
 
-  $("#rock").on("click", function(){
-    var userGuess ="";
-    var userScore = 0;
-    //var computerScore = 0;
-    //var roundNumber = 0;
-    var rockPaperScissors = ['rock', 'paper', 'scissors'];
-    var computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
-    var computerGuess = rockPaperScissors[computerGuessNumber];
+  $(".userChoice").on("click", function(){
+    userGuess = $(this).data('value');
+    computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
+    computerGuess = rockPaperScissors[computerGuessNumber];
 
-    userGuess = "rock";
-    userScore = userScore + 1;
-    alert("computer guess is " + computerGuess);
-    alert("the user score is: " + userScore);
-    $('#user-score').html(userScore) ;
+    alert("the users guess is : " + userGuess);
+    alert("computers guess is " + computerGuess);
+   
+    if (userGuess != computerGuess) {
+      userScore++;
+      roundNumber++;
+      $('#user-score').html(userScore);
+      $('#round-number').html(roundNumber);
+      alert("user score is " + userScore);
+    } else if (userGuess === computerGuess) {
+      computerScore++;
+      roundNumber++;
+      $('#computer-score').html(computerScore);
+      $('#round-number').html(roundNumber);
+      alert("computer score is " + computerScore);
+    }
+
+    if (roundNumber === 5) {
+      $('#user-score').html(0);
+      $('#computer-score').html(0);
+      $('#round-number').html(0);
+      userGuess ="";
+      userScore = 0;
+      computerScore = 0;
+      roundNumber = 0;
+      alert("The game is over")
+    }
+
   });
 
-
+  $("#playAgain").on("click", function(){
+    $('#user-score').html(0);
+    $('#computer-score').html(0);
+    $('#round-number').html(0);
+    alert("would you like to play again?")
+    userGuess ="";
+    userScore = 0;
+    computerScore = 0;
+    roundNumber = 0;
+  })
   
-  //The event handler gets the button by id when it is clicked, then userGuess is set
+  //The event handler gets the button by class=userChoice when it is clicked, then userGuess is set
   //to rock, paper, scissors depending on the users button selection
   //userGuess is compared to computerGuess, if they are the same the computer wins and 
   //computerScore is incremented and roundNumber is incremented, if they are not the
@@ -39,23 +67,27 @@ var computerGuess = rockPaperScissors[computerGuessNumber];
 
   //if (userGuess === computerGuess){
     //display computer wins the round
-    //increment computerScore and roundNumber
-    ////$('#computer-score').html('Me: '+computerScore);
+    //computerScore++;
+    //roundNumber++;
+    //$('#computer-score').html(computerScore);
+    //$('#round-number').html(roundNumber);
   //}
 
   //else if (userGuess != computerGuess){
     //diplay user wins the round
     //increment userScore and roundNumber
-    //$('#user-score').html('You: '+userScore);
+    //$('#user-score').html(userScore);
+    //$('#round-number').html(roundNumber);
     //}
 
   //if (roundNumber >= 5) {
     //display the game is over
     //if (userScore > computerScore){
       //display user wins the game
-      //set userScore = 0
-      //set computerScore = 0
-      //set roundNumber = 0
+      //$('#user-score').html(0);
+      //$('#computer-score').html(0);
+      //$('#round-number').html(0);
+      //alert("would you like to play again?")
     //}
 
 

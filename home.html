@@ -7,35 +7,36 @@
 <body>
   <div class="container">
     <div>
-      <h2>Rock, Paper, Scissors</h2>
+      <h2>Play Rock, Paper, or Scissors</h2>
     </div>
-    <!--create a list/paragraph of instructions-->
-
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <button id="playAgain">End the game</button>
-
-    <!--create something to display the user's score, the computer's score and the round number
-    and who won or lost-->
+    <ul>
+      <li>Press Rock, Paper, or Scissors to start</li>
+      <li>If I guess correctly, I win
+      <li>If I guess incorrectly, you win
+      <li>We play for five rounds</li>
+      <li>Press End to start over</li>
+    </ul>
+    <button class="userChoice" id="rock", data-value="rock">Rock</button>
+    <button class="userChoice" id="paper", data-value="paper">Paper</button>
+    <button class="userChoice" id="scissors", data-value="scissors">Scissors</button>
+    <button id="playAgain", data-value="playAgain">End</button>
     <div>
       <table class="table">
     <thead>
       <tr>
         <th>Your Score</th>
         <th>My Score</th>
+        <th>Round Number</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td id="user-score">0</td>
         <td id="computer-score">0</td>
+        <td id="round-number">0</td>
       </tr>
     </tbody>
   </table>
-    </div>
-
-  </div>
 </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="jscripts/rps.js"></script>
