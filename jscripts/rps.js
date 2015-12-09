@@ -10,7 +10,8 @@ var computerGuessNumber = 0;
 var computerGuess = 0;
 
 
-  $(".userChoice").on("click", function(){
+  $(".userChoice").on("click", function(e){
+    e.preventDefault();
     userGuess = $(this).data('value');
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
@@ -19,38 +20,45 @@ var computerGuess = 0;
     alert("computers guess is " + computerGuess);
    
     if (userGuess != computerGuess) {
-      userScore++;
-      roundNumber++;
-      $('#user-score').html(userScore);
-      $('#round-number').html(roundNumber);
+      increaseUsersScore()
     } else if (userGuess === computerGuess) {
-      computerScore++;
-      roundNumber++;
-      $('#computer-score').html(computerScore);
-      $('#round-number').html(roundNumber);
+      increaseComputersScore()
     }
+
     if (roundNumber === 5) {
-      alert("The game is over")
-      $('#user-score').html(0);
-      $('#computer-score').html(0);
-      $('#round-number').html(0);
-      userGuess ="";
-      userScore = 0;
-      computerScore = 0;
-      roundNumber = 0;
-      
+      alert("The game is over, let's play again!")
+      resetGame();
     }
   });
 
-  $("#playAgain").on("click", function(){
+  $("#playAgain").on("click", function(e){
+    e.preventDefault();
+    alert("Let's play again?")
+    resetGame();
+  });
+
+  function increaseComputersScore() {
+    computerScore++;
+    roundNumber++;
+    $('#computer-score').html(computerScore);
+    $('#round-number').html(roundNumber);
+  }
+
+  function increaseUsersScore(){
+    userScore++;
+    roundNumber++;
+    $('#user-score').html(userScore);
+    $('#round-number').html(roundNumber);
+  }
+
+  function resetGame() {
     $('#user-score').html(0);
     $('#computer-score').html(0);
     $('#round-number').html(0);
-    alert("Would you like to play again?")
     userGuess ="";
     userScore = 0;
     computerScore = 0;
     roundNumber = 0;
-  })
+  }
 
 });
