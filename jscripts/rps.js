@@ -33,7 +33,7 @@ var computerGuess = 0;
 
   $("#playAgain").on("click", function(e){
     e.preventDefault();
-    alert("Let's play again?")
+    //alert("Let's play again?")
     resetGame();
   });
 
