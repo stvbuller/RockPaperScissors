@@ -29,15 +29,14 @@ var computerGuess = 0;
     }
 
     if (roundNumber === 5) {
-
-      alert("The game is over, let's play again!")
+      //alert("The game is over, let's play again!")
       resetGame();
     }
   });
 
   $("#playAgain").on("click", function(e){
     e.preventDefault();
-    alert("Let's play again?")
+    //alert("Let's play again?")
     resetGame();
   });
 
@@ -63,7 +62,7 @@ var computerGuess = 0;
     $('#computer-score').html(0);
     $('#round-number').html(0);
     $('#computer-guess').html("My guess");
-    $('#who-wins').html("The winner")
+    $('#who-wins').html("Let's play again!")
     userGuess ="";
     userScore = 0;
     computerScore = 0;
