@@ -29,7 +29,7 @@ var computerGuess = 0;
     }
 
     if (roundNumber === 5) {
-      //alert("The game is over, let's play again!")
+      alert("The game is over, let's play again!")
       resetGame();
     }
   });
