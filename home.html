@@ -8,6 +8,7 @@
   <div class="container">
     <div>
       <h2>Play Rock, Paper, or Scissors</h2>
+
     </div>
     <ul>
       <li>Click Rock, Paper, or Scissors to start</li>
@@ -16,10 +17,12 @@
       <li>We play for five rounds</li>
       <li>Click Stop to start over</li>
     </ul>
-    <button class="userChoice" data-value="rock">Rock</button>
-    <button class="userChoice" data-value="paper">Paper</button>
-    <button class="userChoice" data-value="scissors">Scissors</button>
-    <button id="playAgain" data-toggle="modal" data-target="#stopModal">Stop</button>
+    <h3 id="computer-guess">My guess</h3>
+    <h3 id="who-wins">Let's play!</h3>
+    <button class="userChoice btn btn-primary" data-value="rock">Rock</button>
+    <button class="userChoice btn btn-primary" data-value="paper">Paper</button>
+    <button class="userChoice btn btn-primary" data-value="scissors">Scissors</button>
+    <button class="btn btn-danger" id="playAgain">Stop</button>
     <div>
       <table class="table">
     <thead>
