@@ -3,6 +3,7 @@
 <head>
   <title>Rock. Paper, Scissors</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/base.css">
 </head>
 <body>
   <div class="container">
@@ -16,12 +17,12 @@
       <li>We play for five rounds</li>
       <li>Click Stop to start over</li>
     </ul>
-    <h3 id="computer-guess">My guess</h3>
+    <h3 class="guessText" id="computer-guess">My guess</h3>
     <h3 id="who-wins">Let's play!</h3>
     <button class="userChoice btn btn-primary" data-value="rock">Rock</button>
     <button class="userChoice btn btn-primary" data-value="paper">Paper</button>
     <button class="userChoice btn btn-primary" data-value="scissors">Scissors</button>
-    <button class="btn btn-danger" id="playAgain">Stop</button>
+    <button class="btn btn-default" id="playAgain">Stop</button>
     <div>
       <table class="table">
     <thead>
@@ -51,7 +52,7 @@
           <h1>Let's play again!!!</h1>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
