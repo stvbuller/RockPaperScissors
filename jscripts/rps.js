@@ -16,6 +16,10 @@ var computerGuess = 0;
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
     
+    //the idea here is to slide down the button that is selected
+    $(this).addClass("slideDown")
+
+
     //bind the stop button here, once the game starts
     $("#playAgain").on("click", function(e){
       e.preventDefault();
@@ -74,15 +78,13 @@ var computerGuess = 0;
     //the end button is changed back to default
     $("#playAgain").removeClass("btn-danger");
     $("#playAgain").addClass("btn-default");
+    //remove class slideDown
+    $(".userChoice").removeClass("slideDown");
     userGuess ="";
     userScore = 0;
     computerScore = 0;
     roundNumber = 0;
   }
 
-  //here the html for the guess text fades in
-  // function htmlFadeIn(){
-  //   (.guessText).fadeIn(1000)
-  // }
 
 });
