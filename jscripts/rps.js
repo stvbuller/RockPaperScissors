@@ -15,11 +15,7 @@ var computerGuess = 0;
     userGuess = $(this).data('value');
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
-    //here a modal could launch that diaplay's the computers guess
-    //and who wins
-
-    //alert("the users guess is : " + userGuess);
-    //alert("computers guess is " + computerGuess);
+  
     $('#computer-guess').html("My guess is " + computerGuess);
    
     if (userGuess != computerGuess) {
@@ -29,14 +25,14 @@ var computerGuess = 0;
     }
 
     if (roundNumber === 5) {
-      alert("The game is over, let's play again!")
+      $("#myModal").modal('show');
       resetGame();
     }
   });
 
   $("#playAgain").on("click", function(e){
     e.preventDefault();
-    //alert("Let's play again?")
+    $("#myModal").modal('show');
     resetGame();
   });
 
