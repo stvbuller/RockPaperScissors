@@ -8,6 +8,7 @@ var roundNumber = 0;
 var rockPaperScissors = ['rock', 'paper', 'scissors'];
 var computerGuessNumber = 0;
 var computerGuess = 0;
+var timerID = 0;
 
 
   $(".userChoice").on("click", function(e){
@@ -33,7 +34,9 @@ var computerGuess = 0;
     //fade text in and out
     $("#gameHeader").html("Guess again!");
     $("#gameHeader").css("color","#FF0DFF");
-    setInterval(loopHeader, 3000);
+    $('#gameHeader').fadeOut(0);
+    $("#gameHeader").fadeIn(1000);
+    
     
     //the idea here is to fade out the computer guess text and fade it in
     //and chage the color
@@ -59,10 +62,6 @@ var computerGuess = 0;
 
   createAnimation();
    
-  function loopHeader(){
-    $('#gameHeader').fadeOut(0);
-    $("#gameHeader").fadeIn(1000);
-  }
 
   function createAnimation() {
     $(".userChoice").on("mouseenter", function() {
@@ -112,8 +111,7 @@ var computerGuess = 0;
     //unbind the stop button
     $("#playAgain").off("click");
     $("#instructionsList").css("color","black");
-
-      $(".result-symbol").attr("id", "");
+    $(".result-symbol").attr("id", "");
     userGuess ="";
     userScore = 0;
     computerScore = 0;
