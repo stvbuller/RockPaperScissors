@@ -17,7 +17,7 @@ var computerGuess = 0;
     computerGuess = rockPaperScissors[computerGuessNumber];
     
     //the idea here is to slide down the button that is selected
-    $(this).addClass("slideDown")
+    $(this).addClass("slideDown");
 
 
     //bind the stop button here, once the game starts
@@ -30,12 +30,15 @@ var computerGuess = 0;
     //th idea here is to change the stop button color to red
     $("#playAgain").removeClass("btn-default");
     $("#playAgain").addClass("btn-danger");
+
+    //the idea here is to delay the time that the text is shown
+    //and fade it in
     $('#computer-guess').html("My guess is " + computerGuess);
    
     if (userGuess != computerGuess) {
-      increaseUsersScore()
+      increaseUsersScore();
     } else if (userGuess === computerGuess) {
-      increaseComputersScore()
+      increaseComputersScore();
     }
 
     if (roundNumber === 5) {
@@ -44,13 +47,6 @@ var computerGuess = 0;
     }
   });
 
-  //unbind the end when the game begins, bind it when the game stars
-  // and have the button change to btn-danger
-  // $("#playAgain").on("click", function(e){
-  //   e.preventDefault();
-  //   $("#myModal").modal('show');
-  //   resetGame();
-  // });
 
   function increaseComputersScore() {
     computerScore++;
@@ -58,7 +54,6 @@ var computerGuess = 0;
     $('#computer-score').html(computerScore);
     $('#round-number').html(roundNumber);
     $('#who-wins').html("I win");
-
   }
 
   function increaseUsersScore(){
@@ -78,8 +73,10 @@ var computerGuess = 0;
     //the end button is changed back to default
     $("#playAgain").removeClass("btn-danger");
     $("#playAgain").addClass("btn-default");
-    //remove class slideDown
+    //remove class slideDown from buttons
     $(".userChoice").removeClass("slideDown");
+    //unbind the stop button
+    $("#playAgain").off("click");
     userGuess ="";
     userScore = 0;
     computerScore = 0;
