@@ -16,6 +16,7 @@ var computerGuess = 0;
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
     
+    $("#star-five").addClass("star-five");
 
     //bind the stop button when rock, paper or
     //scissors button is clicked
