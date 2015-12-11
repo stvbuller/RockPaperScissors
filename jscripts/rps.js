@@ -24,21 +24,19 @@ var computerGuess = 0;
       resetGame();
     });
 
-    //th idea here is to change the stop button color to red
+    //the idea here is to change the stop button color to red
     //by changing class
     $("#playAgain").removeClass("btn-default");
     $("#playAgain").addClass("btn-danger");
 
-    //the idea here is to fade the header text in and out
-    $('#gameHeader').fadeOut(0);
+    //the idea here is to change the header text and
+    //fade text in and out
     $("#gameHeader").html("Guess again!");
     $("#gameHeader").css("color","#FF0DFF");
-    $("#gameHeader").fadeIn(1000);
-    $("#instructionsList").css("color","#E80C7A");
-
-
-
-    //the idea here is to fade out the text and fade it in
+    setInterval(loopHeader, 3000);
+    
+    //the idea here is to fade out the computer guess text and fade it in
+    //and chage the color
     $('#computer-guess').fadeOut(0).fadeIn(2000);
     $('#computer-guess').html("My guess is " + computerGuess);
     $('#computer-guess').css("color", "#FF530D");
@@ -61,6 +59,10 @@ var computerGuess = 0;
 
   createAnimation();
    
+  function loopHeader(){
+    $('#gameHeader').fadeOut(0);
+    $("#gameHeader").fadeIn(1000);
+  }
 
   function createAnimation() {
     $(".userChoice").on("mouseenter", function() {
