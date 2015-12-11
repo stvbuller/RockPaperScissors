@@ -34,8 +34,8 @@ var timerID = 0;
     //fade text in and out
     $("#gameHeader").html("Guess again!");
     $("#gameHeader").css("color","#FF0DFF");
-    $('#gameHeader').fadeOut(0);
-    $("#gameHeader").fadeIn(1000);
+    //$('#gameHeader').fadeOut(0);
+    //$("#gameHeader").fadeIn(1000);
     
     
     //the idea here is to fade out the computer guess text and fade it in
@@ -61,7 +61,7 @@ var timerID = 0;
   });
 
   createAnimation();
-   
+  setInterval(loopHeader, 3000); 
 
   function createAnimation() {
     $(".userChoice").on("mouseenter", function() {
@@ -70,6 +70,11 @@ var timerID = 0;
     $(".userChoice").on("mouseleave", function() {
          $(this).removeClass("slideDown");
     });  
+  }
+
+  function loopHeader() {
+    $('#gameHeader').fadeOut(500);
+    $("#gameHeader").fadeIn(1000);
   }
 
   function increaseComputersScore() {
