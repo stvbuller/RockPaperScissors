@@ -8,7 +8,6 @@ var roundNumber = 0;
 var rockPaperScissors = ['rock', 'paper', 'scissors'];
 var computerGuessNumber = 0;
 var computerGuess = 0;
-var timerID = 0;
 
 
   $(".userChoice").on("click", function(e){
