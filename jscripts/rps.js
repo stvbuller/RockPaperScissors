@@ -15,8 +15,6 @@ var computerGuess = 0;
     userGuess = $(this).data('value');
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
-    
-    $("#star-five").addClass("star-five");
 
     //bind the stop button when rock, paper or
     //scissors button is clicked
@@ -48,8 +46,11 @@ var computerGuess = 0;
    
     if (userGuess != computerGuess) {
       increaseUsersScore();
+      $(".result-symbol").attr("id", "triangle-up");
+
     } else {
       increaseComputersScore();
+      $(".result-symbol").attr("id", "triangle-down");
     }
 
     if (roundNumber === 6) {
@@ -109,6 +110,8 @@ var computerGuess = 0;
     //unbind the stop button
     $("#playAgain").off("click");
     $("#instructionsList").css("color","black");
+
+      $(".result-symbol").attr("id", "");
     userGuess ="";
     userScore = 0;
     computerScore = 0;
