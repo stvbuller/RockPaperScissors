@@ -48,7 +48,7 @@ var computerGuess = 0;
    
     if (userGuess != computerGuess) {
       increaseUsersScore();
-    } else if (userGuess === computerGuess) {
+    } else {
       increaseComputersScore();
     }
 
@@ -76,7 +76,7 @@ var computerGuess = 0;
     $('#computer-score').html(computerScore);
     $('#round-number').html(roundNumber);
     $('#who-wins').fadeOut(0);
-    $('#who-wins').fadeIn(2000);
+    $('#who-wins').fadeIn(2500);
     $('#who-wins').html("I win");
     $('#who-wins').css("color", "#FF530D");
 
@@ -88,7 +88,7 @@ var computerGuess = 0;
     $('#user-score').html(userScore);
     $('#round-number').html(roundNumber);
     $('#who-wins').fadeOut(0);
-    $('#who-wins').fadeIn(2000);
+    $('#who-wins').fadeIn(2500);
     $('#who-wins').html("You win");
     $('#who-wins').css("color", "#FF530D");
   }
