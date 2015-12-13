@@ -9,12 +9,12 @@ var rockPaperScissors = ['rock', 'paper', 'scissors'];
 var computerGuessNumber = 0;
 var computerGuess = 0;
 
+
   $(".userChoice").on("click", function(e){
     e.preventDefault();
     userGuess = $(this).data('value');
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
-    });
 
     //bind the stop button when rock, paper or
     //scissors button is clicked
@@ -57,7 +57,7 @@ var computerGuess = 0;
       $("#myModal").modal('show');
       resetGame();
     }
-  //});
+  });
 
   createAnimation();
   setInterval(loopHeader, 3000); 
@@ -85,6 +85,7 @@ var computerGuess = 0;
     $('#who-wins').fadeIn(2500);
     $('#who-wins').html("I win");
     $('#who-wins').css("color", "#FF530D");
+
   }
 
   function increaseUsersScore(){
