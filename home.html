@@ -33,10 +33,14 @@
       <button class="userChoice btn-lg btn-primary" data-value="rock">Rock</button>
       <button class="userChoice btn-lg btn-primary" data-value="paper">Paper</button>
       <button class="userChoice btn-lg btn-primary" data-value="scissors">Scissors</button>
-      <button class="btn-lg btn-default" id="playAgain">Reset</button>
+      <button class="btn-lg btn-default" id="playAgain">Reset This Game</button>
+      <button class="btn-lg btn-warning" id="resetFirebase">Worldwide Reset!!!</button>
+      
+
+      <!-- <button class="btn-lg btn-danger"  id="randomReset">Random Worldwide Reset!!</button> -->
     </div>  
 
-
+      
     <div class="col-md-12">
       <table class="table">
         <thead>
@@ -56,6 +60,31 @@
       </table>
     </div>  
 
+    <div class="row">
+      <div class="col-md-12">
+        <label>Rounds Played Worldwide:</label>
+        <label id="labelWorldWide"></label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <label>Worldwide reset by:</label>
+        <label id="updatedBy">user id</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline">
+          <div class="form-group">
+            <label>Player ID</label>
+            <input type="text" class="form-control" id="playerName" placeholder="Who are you?">
+            <button type="submit" class="btn btn-success" id="submitName">Reset Now!</button>
+          </div>
+        </form>
+      </div>
+    </div>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -8,13 +8,29 @@ var roundNumber = 0;
 var rockPaperScissors = ['rock', 'paper', 'scissors'];
 var computerGuessNumber = 0;
 var computerGuess = 0;
+var fbase = new Firebase("https://glowing-inferno-2059.firebaseio.com")
 
+//update the label with the value of counter when the counter
+//value changes
+  fbase.child("counter").on("value", updateLabel);
+  fbase.child("resetBy").on("value", updateUser);
+
+  $("form").hide();
 
   $(".userChoice").on("click", function(e){
     e.preventDefault();
     userGuess = $(this).data('value');
     computerGuessNumber = Math.floor(Math.random()*rockPaperScissors.length)
     computerGuess = rockPaperScissors[computerGuessNumber];
+
+    //increment counter on Firebase
+    fbase.child("counter").transaction(function(currentValue) {
+      return (currentValue || 0) + 1;
+    }, function(err, committed, fbaseVal) {
+      if(err) {
+        throw err;
+      }
+    });
 
     //bind the stop button when rock, paper or
     //scissors button is clicked
@@ -33,8 +49,6 @@ var computerGuess = 0;
     //fade text in and out
     $("#gameHeader").html("Guess again!");
     $("#gameHeader").css("color","#FF0DFF");
-    //$('#gameHeader').fadeOut(0);
-    //$("#gameHeader").fadeIn(1000);
     
     
     //the idea here is to fade out the computer guess text and fade it in
@@ -59,8 +73,34 @@ var computerGuess = 0;
     }
   });
 
+   // Worldwide reset button shows the form
+    $("#resetFirebase").on("click", function(e){
+      e.preventDefault();
+      $(this).hide();
+      $("form").show();
+    });
+
+    //submitName sets the Firebase counter to 0
+    //sets Firebase resetBy to the input value
+    //of the text box
+    $("#submitName").on("click", function(e){
+      e.preventDefault();
+      fbase.child("counter").set(0);
+      $("#resetFirebase").show();
+      fbase.child("resetBy").set($("input").val());
+      $("form").hide();
+    });
+
   createAnimation();
   setInterval(loopHeader, 3000); 
+
+  function updateLabel(fbaseVal){
+    $("#labelWorldWide").html(fbaseVal.val());
+  }
+
+  function updateUser(fbaseVal){
+    $("#updatedBy").html(fbaseVal.val())
+  }
 
   function createAnimation() {
     $(".userChoice").on("mouseenter", function() {
@@ -116,6 +156,7 @@ var computerGuess = 0;
     $("#playAgain").off("click");
     $("#instructionsList").css("color","black");
     $(".result-symbol").attr("id", "");
+    $("#resetFirebase").show()
     userGuess ="";
     userScore = 0;
     computerScore = 0;
