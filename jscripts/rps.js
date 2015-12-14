@@ -9,6 +9,7 @@ var rockPaperScissors = ['rock', 'paper', 'scissors'];
 var computerGuessNumber = 0;
 var computerGuess = 0;
 var fbase = new Firebase("https://glowing-inferno-2059.firebaseio.com")
+var randomReset = 0;
 
 //update the label with the value of counter when the counter
 //value changes
@@ -89,6 +90,13 @@ var fbase = new Firebase("https://glowing-inferno-2059.firebaseio.com")
       $("#resetFirebase").show();
       fbase.child("resetBy").set($("input").val());
       $("form").hide();
+    });
+
+    //random Worldwide reset
+    $("#randomReset").on("click", function(e){
+      e.preventDefault();
+      randomReset = Math.floor(Math.random() * 1000) - 500;
+      fbase.child("counter").set(randomReset);
     });
 
   createAnimation();
